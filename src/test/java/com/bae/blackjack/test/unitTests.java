@@ -17,23 +17,23 @@ public class unitTests {
 	static BlackJack blackjack;
 	
 	@BeforeClass
-	public static void settle() {
+	public static void setup() {
 		blackjack = new BlackJack();
 	}
 	
 	@Test
 	public void test1() {
-		assertEquals(0, blackjack.play(0,0));
+		assertEquals(-1, blackjack.play(0,0));
 	}
 	
 	@Test
 	public void test2() {
-		assertEquals(21, blackjack.play(0, 21));
+		assertEquals(-1, blackjack.play(0, 21));
 	}
 	
 	@Test
 	public void test3() {
-		assertEquals(21, blackjack.play(21, 0));
+		assertEquals(-1, blackjack.play(21, 0));
 	}
 	
 	@Test

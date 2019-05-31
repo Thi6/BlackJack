@@ -9,48 +9,20 @@ public class BlackJack {
 	
 	public int play(int player, int dealer) {
 	int score = 0;
-		if (dealer < 16) {
+	/*	if (dealer < 16) {
 			dealer = dealer + twist();
-		}
+		}*/
 	
-		
-		if (player == 0 && dealer == 0) {
-			score = 0;
-		} else if (player > 30 || dealer > 30) {
+		if ((player > 30 ||  dealer > 30) || (player < 4 || dealer < 4)){
 			score = -1;
-		}  else if (player > 21 && dealer > 21)  {
-			score = 0;
+		} else if (player > 21 && dealer <= 21) {
+			score = dealer;
+		} else if (player > dealer && player <= 21) {
+			score = player;
+		} else if (dealer >= player && dealer <= 21) {
+			score = dealer;
 		}
 		
-		else {
-			if (player > dealer) {
-				if (player > 21 ) {
-					score = dealer;
-					}
-				
-				else {
-					score = player;
-					}
-				}
-				
-			 else if (dealer >= player){
-				 score = dealer;
-			}
-		}
-		
-/*		if (player > dealer) {
-			if (player > 21 ) {
-				score = dealer;}
-			
-			else {
-				score = player;
-				}
-			}
-			
-		 else if (dealer >= player){
-			 score = dealer;
-		}	
-		*/
 		
 		return score;
 		
